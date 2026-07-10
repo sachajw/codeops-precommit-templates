@@ -39,28 +39,28 @@ repos:
       - id: hadolint
         args: [--ignore, DL3025, --ignore, DL3018]
 
-    # Ruff linter and formatter for Python - https://github.com/astral-sh/ruff-pre-commit
-    - repo: https://github.com/astral-sh/ruff-pre-commit
-      # Ruff version.
-      rev: v0.11.10
-      hooks:
-          # Run the linter.
-          - id: ruff-check
-            types_or: [python, pyi]
-            args: [--fix]
-          # Run the formatter.
-          - id: ruff-format
-            types_or: [python, pyi]
+  # Ruff linter and formatter for Python - https://github.com/astral-sh/ruff-pre-commit
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.11.10
+    hooks:
+      # Run the linter.
+      - id: ruff-check
+        types_or: [python, pyi]
+        args: [--fix]
+      # Run the formatter.
+      - id: ruff-format
+        types_or: [python, pyi]
 
-    - repo: https://github.com/hukkin/mdformat
-      rev: 0.7.22 # Use the ref you want to point at
-      hooks:
-          - id: mdformat
-            # Optionally add plugins
-            additional_dependencies:
-                - mdformat-ruff
-                - mdformat-gfm
-                - mdformat-black
+  - repo: https://github.com/hukkin/mdformat
+    rev: 0.7.22 # Use the ref you want to point at
+    hooks:
+      - id: mdformat
+        # Optionally add plugins
+        additional_dependencies:
+          - mdformat-ruff
+          - mdformat-gfm
+          - mdformat-black
 
   # Jira
   # Jira smart commits start
@@ -101,17 +101,11 @@ repos:
   # K8s Templating
   # Helm start
   - repo: https://github.com/norwoodj/helm-docs
-    rev: v1.11.0 # https://github.com/norwoodj/helm-docs | You will need to configure a linter_values.yaml file
+    rev: v1.14.2 # https://github.com/norwoodj/helm-docs (works out-of-the-box; linter_values.yaml optional)
     hooks:
       - id: helm-docs
         args:
-          # Chart search path
           - --chart-search-root=.
-          # The `./` makes it relative to the chart-search-root set above
-          - --template-files=./_templates.gotmpl
-          # Repeating the flag adds this to the list, now [./_templates.gotmpl, README.md.gotmpl]
-          # A base filename makes it relative to each chart directory found
-          - --template-files=README.md.gotmpl
   # Helm end
 
   # Typo checker

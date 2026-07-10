@@ -64,7 +64,7 @@ GITGUARDIAN_API_KEY=<crazy long string of numbers and letters>
 
 A tool for automatically generating markdown documentation for helm charts
 
-`linter_values.yaml` example required for Helm Docs
+`linter_values.yaml` example (optional — only needed when chart templates reference values that must resolve for docs to render; helm-docs works out-of-the-box with the built-in default template otherwise)
 
 ```yaml
 dockerRegistry: ".dkr.ecr.eu-central-1.amazonaws.com"
