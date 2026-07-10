@@ -34,7 +34,7 @@ repos:
 
   # Hadolint your Dockerfile
   - repo: https://github.com/AleksaC/hadolint-py
-    rev: v2.12.1b3
+    rev: v2.14.0 # https://github.com/AleksaC/hadolint-py (pip wheel bundling hadolint)
     hooks:
       - id: hadolint
         args: [--ignore, DL3025, --ignore, DL3018]
@@ -73,7 +73,7 @@ repos:
   # IaC
   # Terraform start
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.77.0 # https://github.com/antonbabenko/pre-commit-terraform/releases
+    rev: v1.108.0 # https://github.com/antonbabenko/pre-commit-terraform/releases
     hooks:
       - id: terraform_checkov
       - id: terraform_docs
